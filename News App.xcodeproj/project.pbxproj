@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9968FD4B775C7B09587E0113 /* Pods_News_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631558AE26C369C9CCE51459 /* Pods_News_App.framework */; };
 		9D58A832288DC01A00B63E6E /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D58A830288DC01A00B63E6E /* NewsView.swift */; };
-		9D58A833288DC01A00B63E6E /* NewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D58A831288DC01A00B63E6E /* NewsView.xib */; };
+		9D58A833288DC01A00B63E6E /* newsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D58A831288DC01A00B63E6E /* newsView.xib */; };
 		9D70375E288DC43D00713AF1 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D70375D288DC43D00713AF1 /* NewsManager.swift */; };
 		9D703777288DC7C700713AF1 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D703776288DC7C700713AF1 /* K.swift */; };
 		9DBF45DC288D3AE300F25EC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBF45DB288D3AE300F25EC8 /* AppDelegate.swift */; };
@@ -49,7 +49,7 @@
 		70999522D6B8B56CF627B34B /* Pods-News App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News App.debug.xcconfig"; path = "Target Support Files/Pods-News App/Pods-News App.debug.xcconfig"; sourceTree = "<group>"; };
 		82C833D930F1A4B533E38A88 /* Pods-News App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News App.release.xcconfig"; path = "Target Support Files/Pods-News App/Pods-News App.release.xcconfig"; sourceTree = "<group>"; };
 		9D58A830288DC01A00B63E6E /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
-		9D58A831288DC01A00B63E6E /* NewsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsView.xib; sourceTree = "<group>"; };
+		9D58A831288DC01A00B63E6E /* newsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = newsView.xib; sourceTree = "<group>"; };
 		9D70375D288DC43D00713AF1 /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 		9D703776288DC7C700713AF1 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		9DBF45D8288D3AE300F25EC8 /* News App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,7 +120,7 @@
 		9D58A841288DC03200B63E6E /* NIBS */ = {
 			isa = PBXGroup;
 			children = (
-				9D58A831288DC01A00B63E6E /* NewsView.xib */,
+				9D58A831288DC01A00B63E6E /* newsView.xib */,
 				9DBF460F288D3EF100F25EC8 /* newsCell.xib */,
 			);
 			path = NIBS;
@@ -326,7 +326,7 @@
 			files = (
 				9DBF45E8288D3AE600F25EC8 /* LaunchScreen.storyboard in Resources */,
 				9DBF45E5288D3AE600F25EC8 /* Assets.xcassets in Resources */,
-				9D58A833288DC01A00B63E6E /* NewsView.xib in Resources */,
+				9D58A833288DC01A00B63E6E /* newsView.xib in Resources */,
 				9DBF4611288D3EF100F25EC8 /* newsCell.xib in Resources */,
 				9DBF45E3288D3AE300F25EC8 /* Main.storyboard in Resources */,
 			);

@@ -28,15 +28,16 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Table View Delegate//
+        //Conforming DataSources & Delegates//
         tableView.dataSource = self
         tableView.delegate = self
+        newsManager.delegate = self
+        searchBar.delegate = self
+
+
         //Nib Registering//
         tableView.register(UINib(nibName: K.newsCell, bundle: nil), forCellReuseIdentifier: K.newsCell)
-        //Search Bar Delegate//
-        searchBar.delegate = self
-        //NewsManager Delegate
-        newsManager.delegate = self
+        
         
         
         

@@ -35,7 +35,7 @@ struct NewsManager {
         }else{
         //Headlines Fetching//
             print(withNews)
-            url = baseURL + headLines + "?country=\(withCountry!)" + apiKey
+            url = baseURL + headLines + "country=\(withCountry!)" + apiKey
             print(url)
         }
         fetchNews(with: url)
