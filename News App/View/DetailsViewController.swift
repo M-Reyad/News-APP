@@ -11,6 +11,7 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     
+    @IBOutlet weak var backButton: UIBarButtonItem!
     //View Controller Attributes//
     var author: String?
     var titl: String?
@@ -43,4 +44,12 @@ class DetailsViewController: UIViewController {
         self.articleTitle.text = self.titl
         
     }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: false) {
+            print("Dismissed")
+        }
+    }
+    
+    
 }

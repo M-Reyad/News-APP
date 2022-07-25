@@ -7,7 +7,7 @@
 
 import UIKit
 import SDWebImage
-
+import NVActivityIndicatorView
 
 class NewsCell: UITableViewCell {
     
@@ -32,6 +32,7 @@ class NewsCell: UITableViewCell {
     
     func config(with news: articles){
         //Configuring Image with ImageURL sent from API, in case found Nil, replace it thw PlaceHolder Image Link//
+        
         self.newsImage.sd_setImage(with: URL(string: news.urlToImage ?? K.placeholderImage)){ (_, error, _, _) in
             //Completion Handler to Handle Errors//
             if error != nil{
