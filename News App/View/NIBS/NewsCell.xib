@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="297" id="KGk-i7-Jjw" userLabel="newsCell" customClass="NewsCell" customModule="News_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="297"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="411" height="297"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="s1T-M8-MZ1">
+                        <rect key="frame" x="5" y="0.0" width="401" height="297"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ax-HZ-HsB">
+                                <rect key="frame" x="0.0" y="23" width="150" height="251.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="cdM-vf-faS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t2S-XI-Wdt">
+                                <rect key="frame" x="158" y="23" width="243" height="251.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iPj-gR-oUU">
+                                        <rect key="frame" x="0.0" y="0.0" width="243" height="17"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDD-e3-pyg">
+                                                <rect key="frame" x="0.0" y="0.0" width="134" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLS-9m-WEP">
+                                                <rect key="frame" x="139" y="0.0" width="104" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB8-Px-1wo">
+                                        <rect key="frame" x="0.0" y="25" width="243" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uny-tx-Ed3">
+                                        <rect key="frame" x="0.0" y="54.5" width="243" height="197"/>
+                                        <string key="text">What should be in this task ?
+UITabBarController with two view controllers HeadLines and Home.
+Home view should use api reference (1.1) to show list of news in a
+table view with dynamic cell height base on description.
+Each cell in HomeTableView should have specific info author , title ,
+time , image and description</string>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="iPj-gR-oUU" secondAttribute="trailing" id="8q2-hJ-cYy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uny-tx-Ed3" secondAttribute="trailing" id="DKX-ok-qt1"/>
+                                    <constraint firstItem="oB8-Px-1wo" firstAttribute="leading" secondItem="t2S-XI-Wdt" secondAttribute="leading" id="ESu-jj-rkq"/>
+                                    <constraint firstAttribute="trailing" secondItem="oB8-Px-1wo" secondAttribute="trailing" id="Nql-Kc-etl"/>
+                                    <constraint firstItem="iPj-gR-oUU" firstAttribute="leading" secondItem="t2S-XI-Wdt" secondAttribute="leading" id="RgP-IC-uFm"/>
+                                    <constraint firstItem="Uny-tx-Ed3" firstAttribute="leading" secondItem="t2S-XI-Wdt" secondAttribute="leading" id="v1x-Ps-vFG"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="t2S-XI-Wdt" firstAttribute="bottom" secondItem="1ax-HZ-HsB" secondAttribute="bottom" id="WhI-qp-QNn"/>
+                            <constraint firstItem="t2S-XI-Wdt" firstAttribute="top" secondItem="1ax-HZ-HsB" secondAttribute="top" id="jrA-yL-eGC"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="s1T-M8-MZ1" secondAttribute="trailing" constant="5" id="9J1-gV-SVu"/>
+                    <constraint firstItem="s1T-M8-MZ1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="9vO-PK-evu"/>
+                    <constraint firstAttribute="bottom" secondItem="s1T-M8-MZ1" secondAttribute="bottom" id="OHF-1t-le7"/>
+                    <constraint firstItem="s1T-M8-MZ1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dv2-qF-6FP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="newsAuthor" destination="yDD-e3-pyg" id="yiT-nn-SlR"/>
+                <outlet property="newsDescription" destination="Uny-tx-Ed3" id="QtT-Mj-Loy"/>
+                <outlet property="newsImage" destination="1ax-HZ-HsB" id="3Fi-Qa-ted"/>
+                <outlet property="newsTime" destination="zLS-9m-WEP" id="AYc-ti-PbS"/>
+                <outlet property="newsTitle" destination="oB8-Px-1wo" id="o8N-P4-Lkk"/>
+            </connections>
+            <point key="canvasLocation" x="6.5217391304347831" y="-136.27232142857142"/>
+        </tableViewCell>
+    </objects>
+</document>
