@@ -112,14 +112,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         if let destinationVC = segue.destination as? DetailsViewController{
             
         //Configuring Details View Controller Attributes//
-            destinationVC.author = articlesList[index].author ?? articlesList[index].source.name!
-            destinationVC.descr = articlesList[index].description ?? "No Content"
+            
             destinationVC.image.sd_setImage(with: URL(string: articlesList[index].urlToImage ?? K.placeholderImage), completed: { (image, error, _, _) in
                 if error != nil{
                     print(error!)
                 }
             })
             destinationVC.titl = articlesList[index].title ?? "No Title"
+            destinationVC.time = articlesList[index].publishedAt ?? "Unknown"
+            destinationVC.author = articlesList[index].author ?? articlesList[index].source.name!
+            destinationVC.descr = articlesList[index].description ?? "No Content"
         }
         
     }
