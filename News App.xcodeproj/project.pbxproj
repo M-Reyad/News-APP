@@ -130,6 +130,7 @@
 		9DBF45CF288D3AE300F25EC8 = {
 			isa = PBXGroup;
 			children = (
+				9DB52712289065C800F3A13B /* README.md */,
 				9DBF45DA288D3AE300F25EC8 /* News App */,
 				9DBF45F1288D3AE700F25EC8 /* News AppTests */,
 				9DBF45FC288D3AE700F25EC8 /* News AppUITests */,
@@ -186,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				9DBF45E1288D3AE300F25EC8 /* Main.storyboard */,
-				9DB52712289065C800F3A13B /* README.md */,
 				9D58A841288DC03200B63E6E /* NIBS */,
 			);
 			path = View;
