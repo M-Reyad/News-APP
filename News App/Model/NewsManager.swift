@@ -20,6 +20,7 @@ struct NewsManager {
     var q : String?
     let everyThing = "everything?"
     let headLines = "top-headlines?"
+    let sort = "&sortBy=publishedAt"
     
     var delegate: NewsManagerDelegate?
     
@@ -31,13 +32,13 @@ struct NewsManager {
         //Everything Fetching//
         if withNews == K.everyThingScreen {
             print(withNews)
-            url = baseURL + everyThing + "q=\(q!)&language=\(withLanguage!)" + apiKey
+            url = baseURL + everyThing + "q=\(q!)&language=\(withLanguage!)" + apiKey + sort
             print(url)
             
         }else{
         //Headlines Fetching//
             print(withNews)
-            url = baseURL + headLines + "country=\(withCountry!)" + apiKey
+            url = baseURL + headLines + "country=\(withCountry!)" + apiKey + sort
             print(url)
         }
         fetchNews(with: url)
