@@ -54,7 +54,9 @@ struct NewsManager {
                 if error != nil {
                     
                     print("found error!\(error!)")
-                    return
+                    self.delegate?.didFailToSearch()
+//                    return
+                    
                 }
                 if let safeData = data{
                     self.parseJSON(with: safeData)
@@ -73,14 +75,13 @@ struct NewsManager {
     func parseJSON(with Data: Data){
         do{
             let decodedData = try JSONDecoder().decode(hits.self, from: Data)
-            if decodedData.totalResults != 0 {
             print(decodedData.articles.count)
             self.delegate?.didFinishFetching(with: decodedData.articles)
-            } else {
-                print("Error! Found ZERO Results")
-            }
+
         }catch{
             print("Found Error!! \(error)")
+            self.delegate?.didFailToSearch()
+            
         }
         
 }

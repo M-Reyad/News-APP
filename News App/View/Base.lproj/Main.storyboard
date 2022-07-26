@@ -123,20 +123,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAT-qd-bMD" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                <rect key="frame" x="132" y="373" width="150" height="150"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="bJ4-qT-nbM"/>
-                                    <constraint firstAttribute="width" constant="150" id="fRl-Gv-AQJ"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballRotateChase"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tEN-6d-ITH">
                                 <rect key="frame" x="7" y="108" width="400" height="698"/>
                                 <subviews>
@@ -188,6 +174,20 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAT-qd-bMD" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="182" y="423" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bJ4-qT-nbM"/>
+                                    <constraint firstAttribute="width" constant="50" id="fRl-Gv-AQJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballRotateChase"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tqT-wy-KLn"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -203,6 +203,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="IIV-Vd-aPp"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="zAT-qd-bMD" id="aDt-zL-gQV"/>
                         <outlet property="lanuageSelector" destination="Zfq-dO-05r" id="5gN-6s-aBW"/>
                         <outlet property="searchBar" destination="bvj-Hs-Elt" id="ABB-q7-NRM"/>
                         <outlet property="tableView" destination="bIX-2d-mHQ" id="Bqt-pw-ghd"/>
@@ -211,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkH-sf-sAJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="982.60869565217399" y="-488.16964285714283"/>
+            <point key="canvasLocation" x="983" y="-459"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="hEp-LX-Kg8">

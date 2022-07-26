@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lanuageSelector: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     
     
     //View Controller Variables//
@@ -27,6 +28,10 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Activity Indicator Stopping and Hiding//
+        activityIndicator.stopAnimating()
+        print("Stopped")
+        activityIndicator.isHidden = true
         
         //Conforming DataSources & Delegates//
         tableView.dataSource = self
@@ -67,6 +72,8 @@ class HomeViewController: UIViewController {
         
 //Check if the Search has no results yet//
         if q != nil{
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
             newsManager.URLCreator(withNews: K.everyThingScreen, q: q!, withLanguage: lang, withCountry: nil)
         }
         
@@ -127,13 +134,20 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 extension HomeViewController: UISearchBarDelegate{
     //Pressing Search Button//
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //-1- Adding Search Bar Content to q value //
+        //-1-ActivityIndicator Starting Animating
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        
+        //-2- Adding Search Bar Content to q value //
         q = searchBar.text
-        //-2- Searching the Articles Using News Manager re-creating URL//
+        
+        //-3- Searching the Articles Using News Manager re-creating URL//
         newsManager.URLCreator(withNews: K.everyThingScreen, q: q!, withLanguage: lang, withCountry: nil)
-        //-3- Returning Search Bar to Empty//
+        
+        //-4- Returning Search Bar to Empty//
         searchBar.text = ""
-        //-4- Dismissing Keyboard//
+        
+        //-5- Dismissing Keyboard//
         searchBar.endEditing(true)
         
     }
@@ -143,20 +157,36 @@ extension HomeViewController: UISearchBarDelegate{
 //MARK:- News Manager Delegate
 extension HomeViewController: NewsManagerDelegate{
     func didFailToSearch() {
-        let alert = UIAlertController(title: "URL Error", message: "Search Can't be Completed with this Language, Please Use Only English and Change the Language Using the Upper Selector", preferredStyle: .alert)
+        
+        DispatchQueue.main.async {
+        //Deactivating Activity Indicator
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
+        
+        //Presenting an Allert
+        let alert = UIAlertController(title: "URL Error", message: "Search Can't be Completed with this Language or Empty Search Inputs!\n Type something in English and Switch Languages using the Above Selector!", preferredStyle: .alert)
+        //Adding Action to the Allert
         let action = UIAlertAction(title: "OK", style: .default) { (action) in
             alert.dismiss(animated: true, completion: nil)
         }
-        present(alert,animated: true)
-        alert.addAction(action)
+            self.present(alert,animated: true)
+            alert.addAction(action)
+    }
     }
     
     func didFinishFetching(with articles: [articles]) {
         //Modifying the Table View Content after Filling the Articles List//
         DispatchQueue.main.async {
+            //Adding Results into Articles List
             self.articlesList = articles
+            //Reloading TableView Data
             self.tableView.reloadData()
+            //Deactivating Activity Indicator
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
         }
+
+        
     }
     
 }
