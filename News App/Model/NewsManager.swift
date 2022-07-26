@@ -9,6 +9,8 @@ import Foundation
 
 protocol NewsManagerDelegate {
     func didFinishFetching(with articles: [articles])
+    func didFailToSearch()
+    
 }
 
 struct NewsManager {
@@ -43,7 +45,6 @@ struct NewsManager {
     
     //Fetch News Func//
     func fetchNews(with url: String){
-        print(url)
         //1- Create URL
         if let safeURL = URL(string: url){
         //-2- Create URLSession
@@ -51,25 +52,33 @@ struct NewsManager {
         //-3- Give URL Session Task
             let task = session.dataTask(with: safeURL) { (data, response, error) in
                 if error != nil {
+                    
                     print("found error!\(error!)")
                     return
                 }
-                print("Succeeded")
                 if let safeData = data{
                     self.parseJSON(with: safeData)
                 }
             }
         //-4- Resuming the Task
             task.resume()
+        }else{
+            print("Error URL!")
+            self.delegate?.didFailToSearch()
         }
+
     }
     
     //Parsing JSON into Hits Model//
     func parseJSON(with Data: Data){
         do{
             let decodedData = try JSONDecoder().decode(hits.self, from: Data)
+            if decodedData.totalResults != 0 {
             print(decodedData.articles.count)
             self.delegate?.didFinishFetching(with: decodedData.articles)
+            } else {
+                print("Error! Found ZERO Results")
+            }
         }catch{
             print("Found Error!! \(error)")
         }

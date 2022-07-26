@@ -10,6 +10,7 @@ import UIKit
 
 
 struct hits: Codable{
+    let totalResults: Int
     let articles : [articles]
 }
 

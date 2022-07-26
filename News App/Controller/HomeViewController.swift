@@ -142,6 +142,15 @@ extension HomeViewController: UISearchBarDelegate{
 
 //MARK:- News Manager Delegate
 extension HomeViewController: NewsManagerDelegate{
+    func didFailToSearch() {
+        let alert = UIAlertController(title: "URL Error", message: "Search Can't be Completed with this Language, Please Use Only English and Change the Language Using the Upper Selector", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        present(alert,animated: true)
+        alert.addAction(action)
+    }
+    
     func didFinishFetching(with articles: [articles]) {
         //Modifying the Table View Content after Filling the Articles List//
         DispatchQueue.main.async {

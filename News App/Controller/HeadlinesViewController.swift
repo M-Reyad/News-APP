@@ -122,6 +122,10 @@ extension HeadlinesViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 
 //MARK:- News Manager Delegate
 extension HeadlinesViewController: NewsManagerDelegate{
+    func didFailToSearch() {
+        print("failed")
+    }
+    
     func didFinishFetching(with articles: [articles]) {
         //Updating UI in async mode
         DispatchQueue.main.async {
