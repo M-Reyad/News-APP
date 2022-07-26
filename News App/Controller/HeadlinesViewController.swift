@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import WebKit
 import SafariServices
+import NVActivityIndicatorView
 
 
 class HeadlinesViewController: UIViewController{
@@ -23,9 +24,16 @@ class HeadlinesViewController: UIViewController{
     //View Controller Attributes//
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var countryPicker: UIPickerView!
+    @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Activity Indicator Stopping and Hiding//
+        activityIndicator.stopAnimating()
+        print("Stopped")
+        activityIndicator.isHidden = true
+        
         //Conforming DataSource & Delegates//
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -39,6 +47,9 @@ class HeadlinesViewController: UIViewController{
         
         //Initial Country Reading and Running API//
         self.country = K.countriesList[countries[countryPicker.selectedRow(inComponent: 0)]]!
+        //Activating Activity Indicator
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         self.newsManager.URLCreator(withNews: K.headLinesScreen, q: nil, withLanguage: nil, withCountry: self.country)
     
 }
@@ -113,7 +124,13 @@ extension HeadlinesViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     
     //Return the ISO-Country Codes in 2 Alpahbets to Country Label
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         self.country = K.countriesList[countries[row]]!
+        
+        //Activating Activity Indicator
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        
         //Running API
         newsManager.URLCreator(withNews: K.headLinesScreen, q: nil, withLanguage: nil, withCountry: self.country)
         
@@ -123,14 +140,35 @@ extension HeadlinesViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 //MARK:- News Manager Delegate
 extension HeadlinesViewController: NewsManagerDelegate{
     func didFailToSearch() {
-        print("failed")
+        DispatchQueue.main.async {
+            
+        //Deactivating Activity Indicator
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
+        
+        //Presenting an Allert
+        let alert = UIAlertController(title: "No Headlines", message: "No Headlines Found for this Country, try using another Country", preferredStyle: .alert)
+        //Adding Action to the Allert
+        let action = UIAlertAction(title: "OK", style: .default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+            self.present(alert,animated: true)
+            alert.addAction(action)
+    }
     }
     
     func didFinishFetching(with articles: [articles]) {
         //Updating UI in async mode
         DispatchQueue.main.async {
+            //Adding Results into Articles List
             self.articlesList = articles
+            
+            //Reloading Collection View
             self.collectionView.reloadData()
+            
+            //Deactivating Activity Indicator
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
         }
     }
     

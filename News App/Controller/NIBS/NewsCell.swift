@@ -17,22 +17,16 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var newsTime: UILabel!
     @IBOutlet weak var newsTitle: UILabel!
     @IBOutlet weak var newsDescription: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     
     func config(with news: articles){
-        //Configuring Image with ImageURL sent from API, in case found Nil, replace it thw PlaceHolder Image Link//
-        
+        //Configuring Image with ImageURL sent from API, in case found Nil, replace it with PlaceHolder Image Link//
         self.newsImage.sd_setImage(with: URL(string: news.urlToImage ?? K.placeholderImage)){ (_, error, _, _) in
             //Completion Handler to Handle Errors//
             if error != nil{
@@ -49,6 +43,7 @@ class NewsCell: UITableViewCell {
         self.newsDescription.text = news.description ?? "No Content Found!"
         //In case found No Time, replace it with "Unknown Time"
         self.newsTime.text = news.publishedAt ?? "Unknown Time"
+        
     }
     
     

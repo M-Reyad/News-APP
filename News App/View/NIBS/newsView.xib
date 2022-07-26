@@ -75,6 +75,11 @@
                             <constraint firstAttribute="bottom" secondItem="QAL-K1-eRe" secondAttribute="bottom" constant="5" id="q0I-uI-v9W"/>
                             <constraint firstItem="QAL-K1-eRe" firstAttribute="leading" secondItem="uO6-Gg-Zlu" secondAttribute="leading" constant="5" id="sh2-Gg-3eH"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>

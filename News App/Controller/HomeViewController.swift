@@ -72,6 +72,7 @@ class HomeViewController: UIViewController {
         
 //Check if the Search has no results yet//
         if q != nil{
+            //Activating Activity Indicator
             activityIndicator.isHidden = false
             activityIndicator.startAnimating()
             newsManager.URLCreator(withNews: K.everyThingScreen, q: q!, withLanguage: lang, withCountry: nil)

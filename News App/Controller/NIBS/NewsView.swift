@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import NVActivityIndicatorView
 
 class NewsView: UICollectionViewCell {
     //View Attributes//
@@ -19,16 +20,21 @@ class NewsView: UICollectionViewCell {
     //Awake From Nib Func//
     override func awakeFromNib() {
         super.awakeFromNib()
-//        imageHeight.constant = imageHeight.constant * K.conversionIndex
     }
     
     //Config Cell With News Func//
     func config(with news: articles){
-        self.newsImage.sd_setImage(with: URL(string: news.urlToImage ?? K.placeholderImage), completed: nil)
+    
+        self.newsImage.sd_setImage(with: URL(string: news.urlToImage ?? K.placeholderImage)){ (_, error, _, _) in
+            //Completion Handler to Handle Errors//
+            if error != nil{
+                print(error!)
+            }
+        }
+        
         self.newsTitle.text = news.title
         self.newsAuthor.text = news.author
         self.newsTime.text = news.publishedAt
-        
         
     }
 

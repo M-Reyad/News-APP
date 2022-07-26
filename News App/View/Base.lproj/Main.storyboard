@@ -96,17 +96,34 @@
                                     <constraint firstItem="pcu-ob-b3q" firstAttribute="leading" secondItem="HmJ-Lo-AaF" secondAttribute="leading" constant="50" id="z3P-hs-gBz"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56I-bR-a5O" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="182" y="423" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="L1e-6x-o0h"/>
+                                    <constraint firstAttribute="height" constant="50" id="Stx-nW-ENj"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballRotateChase"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HEz-t0-8Qj"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
+                            <constraint firstItem="56I-bR-a5O" firstAttribute="centerX" secondItem="Jsd-5P-jzG" secondAttribute="centerX" id="3Bv-AT-KRx"/>
                             <constraint firstItem="HmJ-Lo-AaF" firstAttribute="leading" secondItem="HEz-t0-8Qj" secondAttribute="leading" constant="10" id="R18-5a-bnI"/>
+                            <constraint firstItem="56I-bR-a5O" firstAttribute="centerY" secondItem="Jsd-5P-jzG" secondAttribute="centerY" id="bZ7-mm-Gmp"/>
                             <constraint firstItem="HmJ-Lo-AaF" firstAttribute="top" secondItem="HEz-t0-8Qj" secondAttribute="top" constant="10" id="kW2-eU-6La"/>
                             <constraint firstItem="HEz-t0-8Qj" firstAttribute="trailing" secondItem="HmJ-Lo-AaF" secondAttribute="trailing" constant="10" id="unk-th-14l"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Headlines" image="newspaper" catalog="system" selectedImage="newspaper.fill" id="1OQ-Xb-0Tj"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="56I-bR-a5O" id="diw-Iv-aey"/>
                         <outlet property="collectionView" destination="N16-CJ-LSc" id="wzk-Hg-3M6"/>
                         <outlet property="countryPicker" destination="2Mp-SA-tIe" id="OqE-7U-Wjy"/>
                     </connections>
